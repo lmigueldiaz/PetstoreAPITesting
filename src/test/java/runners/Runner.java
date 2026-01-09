@@ -1,0 +1,21 @@
+package runners;
+
+import io.cucumber.junit.CucumberOptions;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
+import org.junit.runner.RunWith;
+
+@RunWith(CucumberWithSerenity.class)
+@CucumberOptions(
+        features = "src/test/resources/features",
+        glue = "stepdefinitions",
+        snippets = CucumberOptions.SnippetType.CAMELCASE,
+        plugin = {
+                "pretty",
+                "json:target/cucumber-report/cucumber.json",
+                "html:target/cucumber-report/cucumber.html"
+        },
+        monochrome = false,
+        publish = false,
+        tags = "@PetStore")
+public class Runner {
+}
